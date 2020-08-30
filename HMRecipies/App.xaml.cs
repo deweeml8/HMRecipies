@@ -13,13 +13,18 @@ namespace HMRecipies
     {
         public static IContainer container;
         static readonly ContainerBuilder builder = new ContainerBuilder();
+        public static bool IsUserLoggedIn { get; set; }
         public App()
         {
             InitializeComponent();
             SetupIOC();
 
             ThemeManager.ChangeTheme();
-            MainPage = new NavigationPage(new Views.LoginView());
+            
+            if (!IsUserLoggedIn)
+                MainPage = new Views.LoginView();
+            else
+                MainPage = new Views.HomeView();
         }
         private void SetupIOC()
         {

@@ -22,5 +22,6 @@
     <Folder Include="Styling\" />
     <Folder Include="Styling\Themes\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
 </Project>
