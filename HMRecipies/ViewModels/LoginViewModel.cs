@@ -73,7 +73,10 @@ namespace HMRecipies.ViewModels
             {
                 App.IsUserLoggedIn = true;
                 App.Current.MainPage.DisplayAlert("Login Success", "", "Ok");
-                App.Current.MainPage = new Views.HomeView();
+                App.Current.MainPage = new NavigationPage(new Views.HomeView()) {
+                    BarBackgroundColor = Color.FromHex("#FFFFFF"),
+                    BarTextColor = Color.White
+                };
 
             }
             else
