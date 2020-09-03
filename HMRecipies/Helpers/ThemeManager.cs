@@ -1,4 +1,6 @@
 ﻿using System;
+using Xamarin.Forms;
+
 namespace HMRecipies.Helpers
 {
     public class ThemeManager
@@ -8,7 +10,7 @@ namespace HMRecipies.Helpers
         }
         public static void ChangeTheme()
         {
-
+            Application.Current.Resources.MergedDictionaries.Add(new Styling.Themes.Base());
         }
     }
 }

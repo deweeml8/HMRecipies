@@ -3,5 +3,57 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="HMRecipies.Styling.Themes.Base">
-    
+
+    <!-- Colour Variables -->
+    <Color x:Key="Primary">#5b42ff</Color>
+    <Color x:Key="Secondary">#B3BFCD</Color>
+    <Color x:Key="Accent">#C4211A</Color>
+    <Color x:Key="White">#ffffff</Color>
+    <Color x:Key="LightGray">#F1F1F1</Color>
+    <Color x:Key="WhiteGray">#FBFBFB</Color>
+    <Color x:Key="MidGray">#C4C4C4</Color>
+    <Color x:Key="Green">#204423</Color>
+
+    <!--Page Styles-->
+
+    <Style TargetType="Frame">
+        <Setter Property="HasShadow" Value="True" />
+        <Setter Property="Margin" Value="20,20,20,20"  />
+    </Style>
+    <Style TargetType="Label" x:Key="LoginTitle">
+        <Setter Property="FontSize" Value="35" />
+        <Setter Property="TextColor" Value="{DynamicResource White}"/>
+    </Style>
+
+    <!--Splash Background Styles-->
+    <Style TargetType="Image" x:Key="Splash_Background">
+        <Setter Property="Source" Value="splash_background.jpg"/>
+    </Style>
+
+
+    <!-- Buttons -->
+
+    <Style TargetType="Button">
+        <Setter Property="BorderRadius" Value="3" />
+        <Setter Property="FontFamily" Value="{DynamicResource BodyFont}" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="VerticalOptions" Value="EndAndExpand" />
+        <Setter Property="Margin" Value="0,10,0,10" />
+        <Setter Property="TextColor" Value="{DynamicResource White}" />
+        <Style.Triggers>
+            <Trigger TargetType="Button"
+             Property="IsEnabled"
+             Value="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+            </Trigger>
+            <Trigger TargetType="Button"
+             Property="IsEnabled"
+             Value="False">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderColor" Value="{StaticResource LightGray}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>
