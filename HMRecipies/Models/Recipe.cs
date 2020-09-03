@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 
 namespace HMRecipies.Models
 {
+    [Table("Recipe")]
     public class Recipe
     {
         [PrimaryKey, AutoIncrement]
@@ -16,10 +17,6 @@ namespace HMRecipies.Models
         public string Category { get; set; }
         [JsonProperty("Time")]
         public string Time { get; set; }
-        [JsonProperty("Ingredients")]
-        public List<string> Ingredients { get; set; }
-        [JsonProperty("Steps")]
-        public List<string> Steps { get; set; }
         [JsonProperty("ImageUrl")]
         public string ImageUrl { get; set; }
         [JsonProperty("OriginalURL")]
@@ -27,8 +24,4 @@ namespace HMRecipies.Models
 
     }
 
-    public class Recipes
-    {
-        public Recipe[] ListOfRecipes { get; set; }
-    }
 }

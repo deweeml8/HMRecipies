@@ -1,9 +1,6 @@
-﻿using System;
-using System.Net;
-using Newtonsoft.Json;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using HMRecipies.Models;
-
+using System.Collections.Generic;
 
 namespace HMRecipies.ViewModels
 {
@@ -11,6 +8,7 @@ namespace HMRecipies.ViewModels
     {
         public HomeViewModel()
         {
+            GetRecipeList();
         }
         public Command LogoutCommand
         {
@@ -23,7 +21,7 @@ namespace HMRecipies.ViewModels
         {
             get
             {
-                return new Command(GetDataAsync);
+                return new Command(UpdateRecipe);
             }
         }
 
@@ -36,6 +34,18 @@ namespace HMRecipies.ViewModels
                 SetProperty(ref _message, value);
             }
         }
+        public List<Recipe> listOfRecipes;
+        public List<Recipe> ListOfRecipes
+        {
+            get { return listOfRecipes; }
+            set
+            {
+
+                listOfRecipes = value;
+                
+            }
+        }
+
         private void Logout()
         {
             App.IsUserLoggedIn = false;
@@ -43,10 +53,15 @@ namespace HMRecipies.ViewModels
             App.Current.MainPage = new Views.LoginView();
 
         }
-        public void GetDataAsync()
+        public void UpdateRecipe()
         {
             Helpers.UpdateRecipesHelper.GetRecipeJson();
+            GetRecipeList();
         }
-        
+        public void GetRecipeList()
+        {
+            ListOfRecipes = Helpers.DatabaseHelper.GetAllData();
+        }
+
     }
 }

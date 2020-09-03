@@ -7,7 +7,27 @@
         <ToolbarItem Text="Logout" Priority="0" Command="{Binding LogoutCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <SearchBar HorizontalOptions="Start" VerticalOptions="StartAndExpand"/>
         
+        <StackLayout HorizontalOptions="Center" VerticalOptions="StartAndExpand">
+            <SearchBar HorizontalOptions="Start" VerticalOptions="StartAndExpand"/>
+            <ListView ItemsSource="{Binding ListOfRecipes}"
+              CachingStrategy="RecycleElement"
+              RowHeight="60">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="8">
+                       
+                                <Label Text="{Binding Name}"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Category}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

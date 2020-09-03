@@ -12,7 +12,7 @@ namespace HMRecipies.Views
         public HomeView()
         {
             InitializeComponent();
-            BindingContext = App.container.Resolve<ViewModels.HomeViewModel>();
+            BindingContext = new ViewModels.HomeViewModel();
         }
     }
 }
