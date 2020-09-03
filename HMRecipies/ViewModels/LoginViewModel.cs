@@ -72,16 +72,13 @@ namespace HMRecipies.ViewModels
             if (AreCredentialsCorrect(user))
             {
                 App.IsUserLoggedIn = true;
-                App.Current.MainPage.DisplayAlert("Login Success", "", "Ok");
-                App.Current.MainPage = new NavigationPage(new Views.HomeView()) {
-                    BarBackgroundColor = Color.FromHex("#FFFFFF"),
-                    BarTextColor = Color.White
-                };
+                App.Current.MainPage.DisplayAlert("Login Success", "", "OK");
+                App.Current.MainPage = new NavigationPage(new Views.HomeView());
 
             }
             else
             {
-                App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct U sername and Password", "OK");
+                App.Current.MainPage.DisplayAlert("Login Fail", "Please enter correct Username and Password", "OK");
                 LoginMessage = "Login failed";
                 Password = string.Empty;
             }

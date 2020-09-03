@@ -5,34 +5,42 @@
              BackgroundColor="#0E547C"
              >
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <Label Text="HM Recipes" Style="{DynamicResource LoginTitle}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <Grid Padding="0">
+            <Image
+                Aspect="AspectFill"
+                Style="{DynamicResource Splash_Background}"
+                RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            </Image>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="HM Recipes" Style="{DynamicResource LoginTitle}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
         
-            <Frame HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-                <StackLayout VerticalOptions="Center">
+                <Frame HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                     <StackLayout VerticalOptions="Center">
-                        <Entry Text="{Binding Username}" Placeholder="Username" />
-                        <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
-                    </StackLayout>
-                    <Grid HorizontalOptions="Fill" Margin="0" Padding="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Button VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"
-                            Grid.Column="0"
-                            HeightRequest="40" 
-                            Margin="0" Padding="0"
-                            Text="Login"
-                            AutomationId="btnLogin"
-                            IsEnabled="{Binding EnableLogin}"
-                            Command="{Binding LoginCommand}"
+                        <StackLayout VerticalOptions="Center">
+                            <Entry Text="{Binding Username}" Placeholder="Username" />
+                            <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
+                        </StackLayout>
+                        <Grid HorizontalOptions="Fill" Margin="0" Padding="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"
+                                Grid.Column="0"
+                                HeightRequest="40" 
+                                Margin="0" Padding="0"
+                                Text="Login"
+                                AutomationId="btnLogin"
+                                IsEnabled="{Binding EnableLogin}"
+                                Command="{Binding LoginCommand}"
 
-                                />
-                    </Grid>
-                    <Label Text="{Binding LoginMessage}" />
-                </StackLayout>
-            </Frame>
-        </StackLayout>
+                                    />
+                        </Grid>
+                        <Label Text="{Binding LoginMessage}" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
         
     </ContentPage.Content>
 </ContentPage>

@@ -14,6 +14,7 @@ namespace HMRecipies
         public static IContainer container;
         static readonly ContainerBuilder builder = new ContainerBuilder();
         public static bool IsUserLoggedIn { get; set; }
+        public static string FilePath;
         public App()
         {
             InitializeComponent();
@@ -23,6 +24,19 @@ namespace HMRecipies
             
             if (!IsUserLoggedIn)
                 MainPage = new Views.LoginView();
+            else
+                MainPage = new Views.HomeView();
+        }
+        public App(string filePath)
+        {
+            InitializeComponent();
+            SetupIOC();
+
+            FilePath = filePath;
+            ThemeManager.ChangeTheme();
+
+            if (!IsUserLoggedIn)
+                MainPage = new NavigationPage(new Views.HomeView());
             else
                 MainPage = new Views.HomeView();
         }
